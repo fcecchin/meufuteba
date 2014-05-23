@@ -37,8 +37,16 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-# Add Bootstrap SASS https://github.com/twbs/bootstrap-sass
-#gem 'bootstrap-sass', '~> 3.1.1'
-#gem 'bootstrap-sass-extras' # https://github.com/doabit/bootstrap-sass-extras
-# Add Bootstrap css/less/ maybe sass https://github.com/seyhunak/twitter-bootstrap-rails
-gem "twitter-bootstrap-rails"
+# Add Bootstrap SASS   https://github.com/twbs/bootstrap-sass
+# and                  https://github.com/RailsApps/rails_layout
+gem 'bootstrap-sass'
+group :development do
+  gem 'rails_layout'
+  #gem 'bootstrap-sass-extras' # https://github.com/doabit/bootstrap-sass-extras
+  # Add Bootstrap css/less/ maybe sass https://github.com/seyhunak/twitter-bootstrap-rails
+  gem "twitter-bootstrap-rails"
+end
+
+# Add authentication via http://guides.railsgirls.com/devise/
+gem 'devise'
+#gem 'simple_form' # customize form following http://www.jackiejohnston.us/blog/bootstrap-your-app/
