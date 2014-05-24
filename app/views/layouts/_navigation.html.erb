@@ -9,8 +9,14 @@
         <span class="icon-bar"></span>
       </button>
       <%= link_to 'Home', root_path, class: 'navbar-brand' %>
-      <%= link_to 'Sobre', root_path, class: 'navbar-brand' %>
-      <%= link_to 'Contato', root_path, class: 'navbar-brand' %>
+	  <% if user_signed_in? %>
+      	<%= link_to 'Leagues', leagues_path, class: 'navbar-brand' %>
+      	<%= link_to 'Futebas', root_path, class: 'navbar-brand' %>
+	<% else %>
+        <%= link_to 'Sobre', root_path, class: 'navbar-brand' %>
+        <%= link_to 'Contato', root_path, class: 'navbar-brand' %>
+	<%end%>
+	  
     </div>
     <div class="navbar-collapse collapse pull-right">
       <ul class="nav navbar-nav">
