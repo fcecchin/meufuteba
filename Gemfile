@@ -42,9 +42,9 @@ gem 'spring',        group: :development
 gem 'bootstrap-sass'
 group :development do
   gem 'rails_layout'
-  #gem 'bootstrap-sass-extras' # https://github.com/doabit/bootstrap-sass-extras
+  gem 'bootstrap-sass-extras' # https://github.com/doabit/bootstrap-sass-extras
   # Add Bootstrap css/less/ maybe sass https://github.com/seyhunak/twitter-bootstrap-rails
-  gem "twitter-bootstrap-rails"
+  #gem "twitter-bootstrap-rails"
 end
 
 # Add authentication via http://guides.railsgirls.com/devise/
