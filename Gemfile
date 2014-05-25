@@ -49,4 +49,4 @@ end
 
 # Add authentication via http://guides.railsgirls.com/devise/
 gem 'devise'
-#gem 'simple_form' # customize form following http://www.jackiejohnston.us/blog/bootstrap-your-app/
+gem 'simple_form' # customize form following http://www.jackiejohnston.us/blog/bootstrap-your-app/
