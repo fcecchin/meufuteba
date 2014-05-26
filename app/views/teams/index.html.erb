@@ -7,6 +7,7 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:league_id) %></th>
+      <th><%= model_class.human_attribute_name(:division_id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:logo_url) %></th>
       <th><%= model_class.human_attribute_name(:manager) %></th>
@@ -25,6 +26,7 @@
       <tr>
         <td><%= team.id %></td>
           <td><%= team.league_id %></td>
+          <td><%= team.division_id %></td>
           <td><%= team.name %></td>
           <td><%= team.logo_url %></td>
           <td><%= team.manager %></td>

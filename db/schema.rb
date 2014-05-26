@@ -19,6 +19,22 @@ ActiveRecord::Schema.define(version: 20140523192604) do
     t.string   "name",       limit: 50, null: false
   end
 
+  create_table "teams", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "league_id"
+    t.integer  "division_id"
+    t.string   "name",           limit: 50
+    t.string   "logo_url"
+    t.string   "manager",        limit: 100, null: false
+    t.string   "ballpark",       limit: 100
+    t.string   "mascot",         limit: 100
+    t.integer  "founded"
+    t.integer  "wins"
+    t.integer  "losses"
+    t.float    "win_percentage"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
