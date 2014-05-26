@@ -11,7 +11,7 @@ class Player < ActiveRecord::Base
 #  has_one :draft, :dependent => :destroy
 #  has_many :comments, :as => :commentable
 
-  attr_protected :suspended
+#  attr_protected :suspended
   
 #  def draft_id
 #    self.draft.try :id

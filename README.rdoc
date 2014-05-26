@@ -30,6 +30,7 @@ Things you may want to cover:
 - Add devise for authentication via http://guides.railsgirls.com/devise/
 - Styling devise via http://www.octolabs.com/blogs/octoblog/2013/01/17/styling_devise_with_twitter_bootstrap/
 - Adding simple_form via https://github.com/plataformatec/simple_form/wiki/Simple-Form-with-Devise
+- rails generate scaffold Player --skip-stylesheets --skip-javascripts  --skip-jbuilder        
 
 
 

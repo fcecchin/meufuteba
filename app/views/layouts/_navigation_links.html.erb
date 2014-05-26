@@ -4,6 +4,7 @@
 		<% if user_signed_in? %>
 		<li><%= link_to 'Leagues', leagues_path  %></li>
 		<li><%= link_to 'Teams', teams_path  %></li>
+    <li><%= link_to 'Players', players_path  %></li>
 		<% else %>
 		<li><%= link_to 'Sobre', root_path  %></li>
 		<li><%= link_to 'Funcionalidades', root_path  %></li>
