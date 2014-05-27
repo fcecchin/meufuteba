@@ -29,6 +29,7 @@ class TeamsController < ApplicationController
     @team.losses = 0
     @team.wins = 0
     @team.win_percentage = 0.0
+    @team.manager = current_user.name
 
     respond_to do |format|
       if @team.save

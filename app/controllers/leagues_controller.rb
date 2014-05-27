@@ -26,6 +26,7 @@ class LeaguesController < ApplicationController
   # POST /leagues.json
   def create
     @league = League.new(league_params)
+    @league.user = current_user
 
     respond_to do |format|
       if @league.save

@@ -16,7 +16,13 @@
       <div class="container">  
        <%= render 'layouts/messages' %>
        <%= yield %>
-        </div>
+      </div>
     </main>
+      
+    <% if Rails.env.development? %>
+    <div class="container" style="margin-top: 50px">
+      <%= debug(params) %>
+    </div>  
+    <%end%>
   </body>
 </html>
