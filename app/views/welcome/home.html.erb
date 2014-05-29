@@ -1,6 +1,7 @@
+<% provide(:title, t('home')) %>
 <div class="jumbotron">
   <% if user_signed_in? %>
-  <h1>Welcome back, <%= current_user.firstname  %> </h1>
+  <h1>Welcome back, <%= current_user.full_name  %> </h1>
     <p class="lead">
       You have signed in!  If this were a real app some sweet conent
       would go here.  But it's just a test.  You might want to sign out now.

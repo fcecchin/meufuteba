@@ -1,16 +1,27 @@
+<% provide(:title, @league.custom_name) %>
 <%- model_class = League -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
-</div>
 
-<div class="fieldset">
-  <dl>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:user_id) %></dt>
-      <dd><pre class="prettyprint"><%= @league.user_id %></pre></dd>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:name) %></dt>
-      <dd><pre class="prettyprint"><%= @league.name %></pre></dd>
-  </dl>
+<%= render partial: 'layouts/pageheader', locals: {subtitle: 'League Details', breadcrumbs: {'Leagues' => leagues_path, @league.name => nil}} %>
+
+<div class="container">
+<div class="row">
+  <div class="col-xs-5 col-sm-5">
+    <div class="row">
+        <div class="col-xs-12 col-sm-4" style='font-weight: bold;'><%=t('.manager') %></div>
+        <div class="col-xs-12 col-sm-8" style='text-transform: capitalize'><%= link_to @league.user.full_name, edit_user_registration_path(@league.user_id) %></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-4" style='font-weight: bold;'><%=t('.name') %></div>
+        <div class="col-xs-12 col-sm-8" style='text-transform: capitalize'><%= @league.name %></div>
+    </div>
+    <hr/>
+  </div>
+  
+  <div class="col-xs-12 col-sm-7">
+    Coloque aqui uma tabela com os times cadastrados
+  </div>
 </div>
+  </div>
 
 <div class="form-group">
   <%= link_to t('.back', :default => t("helpers.links.back")),

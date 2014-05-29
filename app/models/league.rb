@@ -6,6 +6,6 @@ class League < ActiveRecord::Base
   has_many :teams#, :through => :divisions, :readonly => true
 
   def custom_name
-    "League '#{self.name}'"
+    "#{self.name}"
   end
 end

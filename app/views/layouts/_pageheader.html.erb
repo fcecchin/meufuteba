@@ -1,0 +1,18 @@
+<div class="page-header" style= 'margin-bottom: 10px;'>
+  <% if local_assigns.has_key? :breadcrumbs %>
+		<ul class="breadcrumb" style='margin-bottom: -10px;'>
+			<li><%= link_to "Home", root_path %></li>
+        <% breadcrumbs.each do |crumb, link| %>
+          <li><% if link.nil?%><%= crumb %>
+              <% else %><%= link_to crumb, link %> 
+              <% end %>
+         </li>
+        <% end %>
+    </ul>
+  <% end %>
+  <h1><%= yield(:title) %>
+    <% if local_assigns.has_key? :subtitle %>
+      <span class="small"> <%= subtitle %></span>
+    <% end %>
+  </h1>
+</div>

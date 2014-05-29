@@ -21,4 +21,7 @@
 
 en:
   hello: "Hello world"
-  new_league: "Create a league"
+  home: "Home"
+  League:
+    president: "President"
+    new_league: "Create a league"
