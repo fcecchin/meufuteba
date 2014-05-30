@@ -29,7 +29,7 @@ class TeamsController < ApplicationController
     @team.losses = 0
     @team.wins = 0
     @team.win_percentage = 0.0
-    @team.manager = current_user.name
+    @team.user = current_user
 
     respond_to do |format|
       if @team.save
@@ -74,6 +74,6 @@ class TeamsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def team_params
-    params.require(:team).permit(:league_id, :name, :manager, :logo_url, :ballpark, :founded, :mascot)
+    params.require(:team).permit(:league_id, :name, :manager, :logo_url, :ballpark, :founded, :mascot, :wins, :losses, :ties)
   end
 end

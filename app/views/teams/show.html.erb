@@ -1,33 +1,28 @@
-<%- model_class = Team -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
-</div>
+<% provide(:title, @team.name) %>
+<%= render partial: 'layouts/pageheader', locals: {subtitle: 'Team Details', breadcrumbs: {'Teams' => teams_path, @team.name => nil}} %>
 
-<div class="fieldset">
-  <dl>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:league_id) %></dt>
-      <dd><pre class="prettyprint"><%= @team.league_id %></pre></dd>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:division_id) %></dt>
-      <dd><pre class="prettyprint"><%= @team.division_id %></pre></dd>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:name) %></dt>
-      <dd><pre class="prettyprint"><%= @team.name %></pre></dd>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:logo_url) %></dt>
-      <dd><pre class="prettyprint"><%= @team.logo_url %></pre></dd>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:manager) %></dt>
-      <dd><pre class="prettyprint"><%= @team.manager %></pre></dd>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:ballpark) %></dt>
-      <dd><pre class="prettyprint"><%= @team.ballpark %></pre></dd>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:mascot) %></dt>
-      <dd><pre class="prettyprint"><%= @team.mascot %></pre></dd>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:founded) %></dt>
-      <dd><pre class="prettyprint"><%= @team.founded %></pre></dd>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:wins) %></dt>
-      <dd><pre class="prettyprint"><%= @team.wins %></pre></dd>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:losses) %></dt>
-      <dd><pre class="prettyprint"><%= @team.losses %></pre></dd>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:win_percentage) %></dt>
-      <dd><pre class="prettyprint"><%= @team.win_percentage %></pre></dd>
-  </dl>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-5 col-sm-5">
+      <div class="row">
+          <div class="col-xs-12 col-sm-4" style='font-weight: bold;'><%=t('manager') %></div>
+          <div class="col-xs-12 col-sm-8" style='text-transform: capitalize'><%= link_to @team.user.full_name, edit_user_registration_path(@team.user_id) %></div>
+      </div>
+      <div class="row">
+          <div class="col-xs-12 col-sm-4" style='font-weight: bold;'><%=t('name') %></div>
+          <div class="col-xs-12 col-sm-8" style='text-transform: capitalize'><%= @team.name %></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-4" style='font-weight: bold;'><%=t('team.winning_percentage') %></div>
+        <div class="col-xs-12 col-sm-8" style='text-transform: capitalize'><%= @team.games_played %></div>
+      </div>
+      <hr/>
+    </div>
+
+    <div class="col-xs-12 col-sm-7">
+      <h2 class="text-center"><%= t('team.manage_players') %></h2>
+    </div>
+  </div>
 </div>
 
 <div class="form-group">

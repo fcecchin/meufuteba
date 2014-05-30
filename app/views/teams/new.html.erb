@@ -1,5 +1,4 @@
-<%- model_class = Team -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></h1>
-</div>
-<%= render :partial => 'form', layout: 'layouts/form_panel', locals: { title: 'Basic Form' }  %>
+<% provide(:title, 'Teams') %>
+<%= render partial: 'layouts/pageheader', locals: {subtitle: t('team.new_team'), breadcrumbs: {'Teams' => leagues_path, t('team.new_team') => nil}} %>
+
+<%= render :partial => 'form', layout: 'layouts/form_panel', locals: { title: '' }  %>

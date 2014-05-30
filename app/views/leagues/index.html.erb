@@ -1,12 +1,14 @@
 <%- model_class = League -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-</div>
+  <% provide(:title, 'My leagues') %>
+<%= render partial: 'layouts/pageheader', locals: {breadcrumbs: {'Leagues' => nil}} %>
+
+<%= link_to "<span class='glyphicon glyphicon-plus'></span> ".html_safe + t('league.new_league', :default => t("helpers.links.new")), new_league_path, :class => 'btn btn-primary pull-right' %>
+
 <table class="table table-striped">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= t('.league.president') %></th>
+      <th><%= t('league.president') %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
     </tr>
   </thead>
@@ -20,5 +22,3 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to t('.league.new_league', default: t("helpers.links.new")), new_league_path, class: 'btn btn-primary' %>
