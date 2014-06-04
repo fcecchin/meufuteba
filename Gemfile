@@ -55,3 +55,4 @@ end
 # Add authentication via http://guides.railsgirls.com/devise/
 gem 'devise'
 gem 'simple_form', '3.1.0.rc1' # customize form following http://www.jackiejohnston.us/blog/bootstrap-your-app/
+gem "cocoon"                   # Nested form with https://github.com/nathanvda/cocoon

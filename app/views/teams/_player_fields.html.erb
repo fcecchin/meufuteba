@@ -1,0 +1,11 @@
+<div class="nested-fields">
+  <div class="row">
+    <%= f.input :number, :placeholder => 'Number', label: false, wrapper_html: { class: 'col-sm-1' }  %>
+    <%= f.input :position, :placeholder => 'Position', label: false, wrapper_html: { class: 'col-sm-2' } %>
+    <%= f.input :name, :placeholder => 'Player name', label: false, wrapper_html: { class: 'col-sm-4' } %>
+    <%= f.input :user, :placeholder => 'Email address', label: false, wrapper_html: { class: 'col-sm-4' } %>
+    <div class="form-group col-sm-1">
+      <%= link_to_remove_association "X", f, :confirm => 'Do you really want to do this?', class: 'btn btn-danger btn-sm'%>
+    </div>
+  </div>
+</div>

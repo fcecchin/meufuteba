@@ -1,6 +1,4 @@
 # coding: utf-8
-
-
 class Team < ActiveRecord::Base
 #  validates_numericality_of :division_id, :only_integer => true
   validates_presence_of :name
@@ -12,7 +10,9 @@ class Team < ActiveRecord::Base
 
 #  belongs_to :division
   belongs_to :user
+  belongs_to :league
   has_many :players, :inverse_of => :team
+  accepts_nested_attributes_for :players, :reject_if => :all_blank, :allow_destroy => true
 #  has_and_belongs_to_many :fans
 #  has_many :comments, :as => :commentable
 
@@ -22,7 +22,7 @@ class Team < ActiveRecord::Base
   
   def winning_percentage
     return 0 unless wins > 0
-    return wins.to_f / games_played.to_f
+    return (wins.to_f / games_played.to_f).round(2)
   end
 
   def games_played

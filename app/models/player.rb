@@ -8,6 +8,7 @@ class Player < ActiveRecord::Base
   end
 
   belongs_to :team, :inverse_of => :players
+  belongs_to :user
 #  has_one :draft, :dependent => :destroy
 #  has_many :comments, :as => :commentable
 

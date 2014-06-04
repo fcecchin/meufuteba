@@ -1,0 +1,4 @@
+<% provide(:title, @team.name) %>
+<%= render partial: 'layouts/pageheader', locals: {subtitle: 'Player management', breadcrumbs: {'Teams' => teams_path, @team.name => team_path(@team), 'Players' => nil}} %>
+
+<%= render :partial => 'player_form', locals: { team: @team}  %>

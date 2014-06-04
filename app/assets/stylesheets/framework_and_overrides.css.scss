@@ -1,6 +1,14 @@
 // import the CSS framework
 @import "bootstrap";
 
+/* override 15px padding */
+.container, main {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 // make all images responsive by default
 img {
   @extend .img-responsive;
@@ -14,6 +22,11 @@ img {
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create your own classes
 // to make views framework-neutral
+.row-btn {
+  @extend .row;
+  margin-right: 0px;
+}
+
 .column {
   @extend .col-md-6;
   @extend .text-center;

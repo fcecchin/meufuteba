@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20140526174927) do
     t.integer  "team_id"
     t.integer  "user_id"
     t.string   "name",       limit: 100,                 null: false
+    t.string   "email",      limit: 100
     t.string   "position",   limit: 50
     t.integer  "number",                                 null: false
     t.boolean  "retired",                default: false
@@ -40,14 +41,13 @@ ActiveRecord::Schema.define(version: 20140526174927) do
     t.datetime "updated_at"
     t.integer  "league_id"
     t.integer  "user_id"
-    t.string   "name",           limit: 50
+    t.string   "name",       limit: 50
     t.string   "logo_url"
-    t.string   "ballpark",       limit: 100
+    t.string   "ballpark",   limit: 100
     t.integer  "founded"
-    t.integer  "wins",                       default: 0
-    t.integer  "losses",                     default: 0
-    t.integer  "ties",                       default: 0
-    t.float    "win_percentage"
+    t.integer  "wins",                   default: 0
+    t.integer  "losses",                 default: 0
+    t.integer  "ties",                   default: 0
   end
 
   create_table "users", force: true do |t|

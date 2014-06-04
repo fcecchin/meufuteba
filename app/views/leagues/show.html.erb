@@ -5,20 +5,12 @@
 
 <div class="container">
 <div class="row">
-  <div class="col-xs-5 col-sm-5">
-    <div class="row">
-        <div class="col-xs-12 col-sm-4" style='font-weight: bold;'><%=t('.manager') %></div>
-        <div class="col-xs-12 col-sm-8" style='text-transform: capitalize'><%= link_to @league.user.full_name, edit_user_registration_path(@league.user_id) %></div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12 col-sm-4" style='font-weight: bold;'><%=t('.name') %></div>
-        <div class="col-xs-12 col-sm-8" style='text-transform: capitalize'><%= @league.name %></div>
-    </div>
-    <hr/>
+  <div class="col-xs-12 col-sm-5">
+    <%= render :partial => 'league_summary', layout: 'layouts/form_panel', locals: { team: @team, title: 'Summary' }  %>
   </div>
   
   <div class="col-xs-12 col-sm-7">
-    Coloque aqui uma tabela com os times cadastrados
+    <%= render :partial => 'teams/table', layout: 'layouts/form_panel', locals: { teams: @league.teams, model_class: Team, title: "Teams registered" }  %>
   </div>
 </div>
   </div>

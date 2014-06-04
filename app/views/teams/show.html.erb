@@ -4,35 +4,26 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-5 col-sm-5">
-      <div class="row">
-          <div class="col-xs-12 col-sm-4" style='font-weight: bold;'><%=t('manager') %></div>
-          <div class="col-xs-12 col-sm-8" style='text-transform: capitalize'><%= link_to @team.user.full_name, edit_user_registration_path(@team.user_id) %></div>
+      <%= render :partial => 'teams/index', layout: 'layouts/form_panel', locals: { team: @team, title: 'Summary' }  %>
+      <div class="form-group">
+        <%= link_to t('.back', :default => t("helpers.links.back")),
+                    teams_path, :class => 'btn btn-default'  %>
+        <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                    edit_team_path(@team), :class => 'btn btn-default' %>
+        <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                    team_path(@team),
+                    :method => 'delete',
+                    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                    :class => 'btn btn-danger' %>
       </div>
-      <div class="row">
-          <div class="col-xs-12 col-sm-4" style='font-weight: bold;'><%=t('name') %></div>
-          <div class="col-xs-12 col-sm-8" style='text-transform: capitalize'><%= @team.name %></div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-4" style='font-weight: bold;'><%=t('team.winning_percentage') %></div>
-        <div class="col-xs-12 col-sm-8" style='text-transform: capitalize'><%= @team.games_played %></div>
-      </div>
-      <hr/>
-    </div>
+    </div> <!-- close left side 5 -->
 
     <div class="col-xs-12 col-sm-7">
-      <h2 class="text-center"><%= t('team.manage_players') %></h2>
-    </div>
-  </div>
-</div>
+      <%= render :partial => 'player_table', layout: 'layouts/form_panel', locals: { players: @team.players, title: 'Players' }  %>
+      <div class="col-md-4 col-md-offset-4">
+        <%= link_to t('team.manage_players'), manage_players_team_path(@team), :class => 'btn btn-primary'  %>    
+      </div>
+    </div> <!-- close right side 7 -->
+  </div> <!-- close row -->
+</div> <!-- close container -->
 
-<div class="form-group">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              teams_path, :class => 'btn btn-default'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_team_path(@team), :class => 'btn btn-default' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              team_path(@team),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
-</div>

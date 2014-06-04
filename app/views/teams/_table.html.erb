@@ -1,0 +1,24 @@
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= model_class.human_attribute_name(:name) %></th>
+        <th><%= model_class.human_attribute_name(:user) %></th>
+        <th><%= model_class.human_attribute_name(:founded) %></th>
+        <th><%= model_class.human_attribute_name(:win_percentage) %></th>
+        <th><%= model_class.human_attribute_name(:created_at) %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% teams.each do |team| %>
+        <tr>
+          <td><%= link_to team.name, team_path(team) %></td>
+          <td><%= team.user.full_name %></td>
+          <td><%= team.founded %></td>
+          <td><%= team.winning_percentage.round(2) %></td>
+          <td><%=l team.created_at, format: :long %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

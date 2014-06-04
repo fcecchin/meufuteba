@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :set_team, only: [:show, :edit, :update, :destroy, :manage_players]
 
   # GET /teams
   # GET /teams.json
@@ -16,6 +16,7 @@ class TeamsController < ApplicationController
   # GET /teams/new
   def new
     @team = Team.new
+    
   end
 
   # GET /teams/1/edit
@@ -28,7 +29,6 @@ class TeamsController < ApplicationController
     @team = Team.new(team_params)
     @team.losses = 0
     @team.wins = 0
-    @team.win_percentage = 0.0
     @team.user = current_user
 
     respond_to do |format|
@@ -65,6 +65,9 @@ class TeamsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def manage_players
+  end
 
   private
   # Use callbacks to share common setup or constraints between actions.
@@ -74,6 +77,6 @@ class TeamsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def team_params
-    params.require(:team).permit(:league_id, :name, :manager, :logo_url, :ballpark, :founded, :mascot, :wins, :losses, :ties)
+    params.require(:team).permit(:league_id, :name, :manager, :logo_url, :ballpark, :founded, :mascot, :wins, :losses, :ties, players_attributes: [:id, :name, :number, :position, :_destroy])
   end
 end
