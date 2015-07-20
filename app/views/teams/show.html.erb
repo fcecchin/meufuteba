@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-5 col-sm-5">
-      <%= render :partial => 'teams/index', layout: 'layouts/form_panel', locals: { team: @team, title: 'Summary' }  %>
+      <%= render :partial => 'teams/form', layout: 'layouts/form_panel', locals: { team: @team, title: 'Summary' }  %>
       <div class="form-group">
         <%= link_to t('.back', :default => t("helpers.links.back")),
                     teams_path, :class => 'btn btn-default'  %>
